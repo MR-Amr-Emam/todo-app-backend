@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     #####
     'django.middleware.security.SecurityMiddleware',
+    ###### white noise configuration
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     #custom csrf middleware
@@ -127,10 +129,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -139,10 +137,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-############################## CUSTOM SETTINGS
+############################## CUSTOM SETTINGS ###################################
 
 
+STATIC_URL = 'static/'
 STATIC_ROOT = "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 AUTH_USER_MODEL = "authentication.User"
@@ -164,17 +164,14 @@ SIMPLE_JWT = {
     "REFRESH_COOKIE": "refresh_token",
 }
 
-ALLOWED_HOSTS = ["172.16.1.22" ,"127.0.0.1", ".vercel.app"]
-DOMAIN_ORIGIN = "#"
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:8000", "http://172.16.1.22", "https://todo-app-frontend-cyan-delta.vercel.app"]
+ALLOWED_HOSTS = [".vercel.app"]
+DOMAIN_ORIGIN = "https://todo-app-backend-demo.vercel.app"
+CSRF_TRUSTED_ORIGINS = ["https://todo-app-frontend-demo.vercel.app"]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://172.16.1.22",
-    "https://todo-app-frontend-cyan-delta.vercel.app",
+    "https://todo-app-frontend-demo.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "media/"
+
