@@ -195,7 +195,7 @@ class PerformMonthPhoto(View):
         image.name = "month_image"
         image = File(image)
         month = self.get_object(request, date)
-        if month.month_photo.path != join(settings.BASE_DIR, "media\default\profile-image.jpg"):
+        if month.month_photo.path != join(settings.BASE_DIR, "media\default\month-image.png"):
             month.month_photo.delete()
         month.month_photo = image
         month.save()
