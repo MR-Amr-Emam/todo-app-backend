@@ -22,7 +22,7 @@ https://mramremam.pythonanywhere.com
 * download Nginx to work as proxy server for uwsgi server and to deploy static files see [documentation](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
 
 ### Note
-if you are on windows like me, uwsgi runs on linux only, so install cygwin which is linux simulator and install uwsgi in it's bash and make virutal environment in it's bash also because it the virtual environment that is created in windows bash(power shell) can't be recognised from uwsgi that is installed in cygwin shell as the venv will be installed like it is in windows (Scripts folder(which is in windows) not bin folder(which is on linux)) that take for me too long time to figure that.
+if you are on windows like me, uwsgi runs on linux only, so install cygwin which is linux simulator and install uwsgi in it's bash and make virutal environment in it's bash also because the virtual environment that is created in windows bash(power shell) can't be recognised from uwsgi that is installed in cygwin shell as the venv will be installed like it is in windows (Scripts folder(which is in windows) not bin folder(which is on linux)) that take for me too long time to figure that.
 recap: to install uwsgi on windows first install cygwin then open the cygwin shell and install uwsgi then create virtualenv in cygwin shell also and download all dependencies with "pip install requirements.txt)
 
 ### another Note
@@ -31,3 +31,5 @@ make all configurations needed in settings.py file for host name , cors and cook
 ### third Note :)
 because frontend is on a domain (todo-app-frontend-demo.vercel.app) and backend on other domain(mramremam.pythonanywhere.com) I have had to make cookies samesite to "None" to allow cross origins and to remove csrf middleware because it is impossible to use csrf with two different domains as access to backend domain cookies from frontend domain in browser is impossible.
   
+### honstly the last Note
+the provided links will not work because the servers are no longer working but you can download the project in your local machine
